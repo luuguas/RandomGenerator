@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <filesystem>
+
 #include <vector>
 #include <algorithm>
 #include <random>
@@ -26,7 +28,7 @@ vector<ll> Query(ll N, ll l, ll r)
 bool OutputToCsv(string fileName, const vector<ll>& array, ll N, ll L, ll R)
 {
     fstream out;
-    string filePath = fileName;
+    string filePath = "../csv/" + fileName;
     out.open(filePath, ios::out | ios::trunc);
 
     if(!out.is_open())
