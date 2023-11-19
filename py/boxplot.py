@@ -7,7 +7,7 @@ filePath = '../csv/' + fileName
 #CSVからデータを読み込む
 data = []
 with open(filePath, encoding='utf-8') as file:
-    data = [[int(x) for x in y] for y in csv.reader(file)]
+    data = [[int(y) for y in x] for x in csv.reader(file)]
 
 N, L, R = tuple(data[0])
 array = data[1][:]
