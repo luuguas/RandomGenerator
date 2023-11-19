@@ -26,7 +26,7 @@ axes[0].boxplot(array, labels=[''], vert=False, whis=100, widths=0.4,
 #箱ひげ図2(diff)
 diff_L, diff_R = 0, 5000
 axes[1].set_title('difference')
-axes[1].set_xlim(diff_L - (diff_R - diff_L) / 20, diff_R + (diff_R - diff_L) / 20)
+axes[1].set_xlim(diff_L - (diff_R - diff_L) / 30, diff_R + (diff_R - diff_L) / 30)
 axes[1].set_xticks(range(0, 5001, 500))
 axes[1].boxplot(diff, labels=[''], vert=False, whis=100, widths=0.4,
            medianprops={'color': 'k'},
