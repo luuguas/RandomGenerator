@@ -54,7 +54,7 @@ int main(void)
     }
     cout << endl;
 
-    OutputToCsv("data11.csv", array, N, L, R);
+    OutputToCsv("data1.csv", array, N, L, R);
 
     return 0;
 }
