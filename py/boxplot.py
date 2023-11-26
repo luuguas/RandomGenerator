@@ -13,7 +13,8 @@ N, L, R = tuple(data[0])
 array = data[1][:]
 
 fig, axes = plt.subplots(2, 1, figsize=[6, 2.5], sharex=True, tight_layout=True)
-plt.xticks(range(L, R + 1, (R - L) // 10))
+interval = (R - L) // 10
+plt.xticks(range(L, R + 1, interval))
 
 #散布図
 axes[0].set_yticks([0])
