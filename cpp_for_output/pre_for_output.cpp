@@ -1,28 +1,10 @@
 #include <iostream>
-#include <fstream>
-
-#include <vector>
-#include <algorithm>
 #include <random>
-
+#include <vector>
 using namespace std;
 
-random_device rd;
-mt19937_64 mt(rd());
-
-vector<long long> Query(long long N, long long l, long long r)
-{
-    vector<long long> array(N);
-    uniform_int_distribution<long long> uid(l, r);
-
-    for(long long i = 0; i < N; ++i)
-    {
-        array[i] = uid(mt);
-    }
-
-    return array;
-}
-
+#include <string>
+#include <fstream>
 bool OutputToCsv(string fileName, const vector<long long>& array, long long N, long long L, long long R)
 {
     fstream out;
@@ -44,20 +26,35 @@ bool OutputToCsv(string fileName, const vector<long long>& array, long long N, l
     return true;
 }
 
+
 int main(void)
 {
-    long long N, l, r;
-    cin >> N >> l >> r;
+    long long N, L, R;
+    cin >> N >> L >> R;
+
+    //ランダムなシード値を使って乱数生成器を初期化
+    random_device rd;
+    mt19937_64 mt(rd());
+
+    //生成する乱数の最小値L,最大値Rを指定して初期化
+    uniform_int_distribution<long long> uid(L, R);
+
+    vector<long long> array(N);
     
-    vector<long long> a = Query(N, l, r);
     for(long long i = 0; i < N; ++i)
     {
-        cout << a[i] << " ";
+        //L以上R以下のランダムな整数を等確率で生成
+        array[i] = uid(mt);
+    }
+
+    //乱数列を出力
+    for(long long i = 0; i < N; ++i)
+    {
+        cout << array[i] << " ";
     }
     cout << endl;
 
-    bool ret = OutputToCsv("data1.csv", a, N, l, r);
-    cout << (ret ? "Success" : "Fail") << endl;
+    OutputToCsv("data11.csv", array, N, L, R);
 
     return 0;
 }
