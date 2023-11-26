@@ -4,6 +4,37 @@
 #include <algorithm>
 using namespace std;
 
+#include <string>
+#include <fstream>
+bool OutputToCsv(string fileName, const vector<long long>& base, const vector<long long>& array, long long N, long long S)
+{
+    fstream out;
+    string filePath = "../csv/" + fileName;
+    out.open(filePath, ios::out | ios::trunc);
+
+    if(!out.is_open())
+        return false;
+
+    out << N << "," << S << endl;
+
+    for(long long i = 0; i < N; ++i)
+    {
+        out << base[i] << ",";
+    }
+    out << base[N];
+    out << endl;
+
+    for(long long i = 0; i < N - 1; ++i)
+    {
+        out << array[i] << ",";
+    }
+    out << array[N - 1];
+    out << endl;
+
+    out.close();
+    return true;
+}
+
 int main(void)
 {
     long long N, S;
@@ -39,6 +70,8 @@ int main(void)
         cout << array[i] << " ";
     }
     cout << endl;
+
+    OutputToCsv("data2.csv", base, array, N, S);
 
     return 0;
 }
