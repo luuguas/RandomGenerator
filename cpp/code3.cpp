@@ -20,6 +20,7 @@ int main(void)
         return 0;
     }
 
+    //乱数の生成範囲を決める
     long long l = max(L, 2 * ave - R), r = min(2 * ave - L, R);
 
     uniform_int_distribution<long long> uid(l, r);
