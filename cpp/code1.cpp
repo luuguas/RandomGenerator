@@ -33,12 +33,15 @@ int main(void)
         array[i] = base[i + 1] - base[i];
     }
 
-    //出力
+    //数列とその和を出力
+    long long sum = 0;
     for(long long i = 0; i < N; ++i)
     {
         cout << array[i] << " ";
+        sum += array[i];
     }
     cout << endl;
+    cout << sum << endl;
 
     return 0;
 }
