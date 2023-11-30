@@ -89,7 +89,7 @@ int main(void)
     cout << endl;
     cout << sum << endl;
 
-    OutputToCsv("data4.csv", array, N, S, L, R);
+    OutputToCsv("data4_2.csv", array, N, S, L, R);
 
     return 0;
 }
