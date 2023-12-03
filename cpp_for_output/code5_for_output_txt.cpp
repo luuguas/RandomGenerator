@@ -44,7 +44,7 @@ int main(void)
     vector<long long> array(N);
 
     long long retry = 0; //生成のやり直し回数
-    for(; retry < retry_max; ++retry)
+    for(; retry <= retry_max; ++retry)
     {
         long long sum = 0;
         for(long long i = 0; i < N; ++i)
@@ -89,8 +89,7 @@ int main(void)
         }
 
         long long fisher_size = fisher.size();
-        //生成失敗判定
-        if(abs(err) > fisher_size)
+        if(abs(err) > fisher_size) //生成失敗判定
             continue;
 
         long long idx;
