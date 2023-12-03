@@ -42,15 +42,27 @@ int main(void)
     }
     err -= err / N * N;
     
-    //微調整(N個の乱数からランダムに選ぶ)
-    uniform_int_distribution<long long> choose(0, N - 1);
-    for(; err > 0; --err)
+    //微調整(N個の乱数から重複のないように選ぶ(Fisher-Yates shuffle))
+    vector<long long> fisher(N);
+    for(long long i = 0; i < N; ++i)
     {
-        array[choose(mt)] -= 1;
+        fisher[i] = i;
     }
-    for(; err < 0; ++err)
+
+    long long idx;
+    for(long long upper = N - 1; err > 0; --err, --upper)
     {
-        array[choose(mt)] += 1;
+        uniform_int_distribution<long long> choose(0, upper);
+        idx = choose(mt);
+        array[fisher[idx]] -= 1;
+        fisher[idx] = fisher[upper];
+    }
+    for(long long upper = N - 1; err < 0; ++err, --upper)
+    {
+        uniform_int_distribution<long long> choose(0, upper);
+        idx = choose(mt);
+        array[fisher[idx]] += 1;
+        fisher[idx] = fisher[upper];
     }
 
     //数列とその和を出力
