@@ -10,7 +10,7 @@ int main(void)
     cin >> N >> S >> L >> R;
 
     const double k = 3.33; //比例定数
-    const long long retry_max = 10;  //生成回数の最大値
+    const long long retry_max = 10; //生成回数の最大値
 
     random_device rd;
     mt19937_64 mt(rd());
