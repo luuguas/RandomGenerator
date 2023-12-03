@@ -7,16 +7,16 @@ class RandomIntegerSequenceWithConstantSum
 {
 private:
     idxT _retry_max = 10;
-    double _k = 100.0;
+    double _k = 10.0;
 
     std::random_device rd;
     std::mt19937_64 mt;
 
 public:
     explicit RandomIntegerSequenceWithConstantSum(void) : mt(rd()) {}
-    explicit RandomIntegerSequenceWithConstantSum(idxT retry_max) : RandomIntegerSequenceWithConstantSum(retry_max, 100.0) {}
+    explicit RandomIntegerSequenceWithConstantSum(idxT retry_max) : RandomIntegerSequenceWithConstantSum(retry_max, 10.0) {}
     explicit RandomIntegerSequenceWithConstantSum(double k) : RandomIntegerSequenceWithConstantSum((idxT)10, k) {}
-    explicit RandomIntegerSequenceWithConstantSum(idxT retry_max, double k) : _retry_max(std::max(retry_max, (idxT)1)), _k(std::max(k, 1.0)), mt(rd()) {}
+    explicit RandomIntegerSequenceWithConstantSum(idxT retry_max, double k) : _retry_max(std::max(retry_max, (idxT)0)), _k(std::max(k, 1.0)), mt(rd()) {}
 
     std::vector<randT> query(idxT N, randT S, randT L, randT R)
     {
@@ -111,7 +111,7 @@ template <typename idxT, typename randT>
 class RandomIntegerSequenceWithConstantSum
 {
     //生成のやり直し回数および比例定数を指定して初期化
-    //指定しない場合、やり直し回数のデフォルトは10回、比例定数のデフォルトは100.0
+    //指定しない場合、やり直し回数のデフォルトは10回、比例定数のデフォルトは10.0
     explicit RandomIntegerSequenceWithConstantSum(void);
     explicit RandomIntegerSequenceWithConstantSum(idxT retry_max);
     explicit RandomIntegerSequenceWithConstantSum(double k);
