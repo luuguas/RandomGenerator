@@ -25,7 +25,7 @@ public:
             return std::vector<randT>(0);
 
         randT l_min = std::max(L, 2 * ave - R), r_max = std::min(2 * ave - L, R);
-        double E_inv = _k * sqrt(N);
+        double E_inv = _k * std::sqrt(N);
         randT gap = std::min((randT)((r_max - l_min) / E_inv), (r_max - l_min) / 2);
         randT l = l_min + gap, r = r_max - gap;
     
