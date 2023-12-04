@@ -103,7 +103,7 @@ int main(void)
     }
 
     //retry_max回生成に失敗した場合
-    if(retry == retry_max)
+    if(retry > retry_max)
     {
         cout << "Failed to generate sequence." << endl;
         return 0;

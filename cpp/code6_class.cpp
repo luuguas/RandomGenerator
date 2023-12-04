@@ -99,7 +99,7 @@ public:
             break;
         }
     
-        if(retry == _retry_max)
+        if(retry > _retry_max)
             return std::vector<randT>(0);
         
         return array;
