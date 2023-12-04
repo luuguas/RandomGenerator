@@ -11,9 +11,7 @@ int main(void)
     random_device rd;
     mt19937_64 mt(rd());
 
-    //平均
-    long long ave = S / N;
-    if(ave < L || R < ave)
+    if(S / N < L || R < S / N)
     {
         //平均が範囲外の場合は生成不可能
         cout << "The average is out of range." << endl;
@@ -21,7 +19,7 @@ int main(void)
     }
 
     //乱数の生成範囲を決める
-    long long l = max(L, 2 * ave - R), r = min(2 * ave - L, R);
+    long long l = max(L, 2 * S / N - R), r = min(2 * S / N - L, R);
 
     uniform_int_distribution<long long> uid(l, r);
 

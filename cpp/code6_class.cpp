@@ -20,11 +20,10 @@ public:
 
     std::vector<randT> query(idxT N, randT S, randT L, randT R)
     {
-        randT ave = S / N;
-        if(ave < L || R < ave)
+        if(S / N < L || R < S / N)
             return std::vector<randT>(0);
 
-        randT l_min = std::max(L, 2 * ave - R), r_max = std::min(2 * ave - L, R);
+        randT l_min = std::max(L, 2 * S / N - R), r_max = std::min(2 * S / N - L, R);
         double E_inv = _k * std::sqrt(N);
         randT gap = std::min((randT)((r_max - l_min) / E_inv), (r_max - l_min) / 2);
         randT l = l_min + gap, r = r_max - gap;
