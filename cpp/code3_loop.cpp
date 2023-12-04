@@ -22,21 +22,21 @@ int main(void)
             cout << "The average is out of range." << endl;
             return 0;
         }
-    
+
         //乱数の生成範囲を決める
         long long l = max(L, 2 * S / N - R), r = min(2 * S / N - L, R);
-    
+
         uniform_int_distribution<long long> uid(l, r);
-    
+
         vector<long long> array(N);
-        
+
         long long sum = 0;
         for(long long i = 0; i < N; ++i)
         {
             array[i] = uid(mt);
             sum += array[i];
         }
-    
+
         //誤差を修正する
         long long err = sum - S;
         for(long long i = 0; i < N; ++i)
@@ -44,7 +44,7 @@ int main(void)
             array[i] -= err / N;
         }
         err -= err / N * N;
-        
+
         //微調整(N個の乱数からランダムに選ぶ)
         uniform_int_distribution<long long> choose(0, N - 1);
         for(; err > 0; --err)
@@ -55,9 +55,9 @@ int main(void)
         {
             array[choose(mt)] += 1;
         }
-    
+
         sort(array.begin(), array.end());
-    
+
         if(L <= array[0] && array[N - 1] <= R)
         {
             ++cnt;

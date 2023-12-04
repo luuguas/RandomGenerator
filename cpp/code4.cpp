@@ -29,9 +29,9 @@ int main(void)
             for(long long q = 0; q < Q; ++q)
             {
                 uniform_int_distribution<long long> uid(-range / 2, range / 2);
-            
+
                 vector<long long> array(n);
-                
+
                 long long sum = 0;
                 for(long long i = 0; i < n; ++i)
                 {

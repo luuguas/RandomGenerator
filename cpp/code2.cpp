@@ -25,10 +25,10 @@ int main(void)
         }
         base.push_back(0);
         base.push_back(S);
-    
+
         //乱数列をソート
         sort(base.begin(), base.end());
-    
+
         //隣り合う要素の差をとる
         long long bmin = S;
         for(long long i = 0; i < N; ++i)

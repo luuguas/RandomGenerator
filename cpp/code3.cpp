@@ -24,7 +24,7 @@ int main(void)
     uniform_int_distribution<long long> uid(l, r);
 
     vector<long long> array(N);
-    
+
     long long sum = 0;
     for(long long i = 0; i < N; ++i)
     {
@@ -39,7 +39,7 @@ int main(void)
         array[i] -= err / N;
     }
     err -= err / N * N;
-    
+
     //微調整(N個の乱数から重複のないように選ぶ(Fisher-Yates shuffle))
     vector<long long> fisher(N);
     for(long long i = 0; i < N; ++i)

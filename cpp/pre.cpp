@@ -16,7 +16,7 @@ int main(void)
     uniform_int_distribution<long long> uid(L, R);
 
     vector<long long> array(N);
-    
+
     for(long long i = 0; i < N; ++i)
     {
         //L以上R以下のランダムな整数を等確率で生成
