@@ -1,4 +1,5 @@
 //総和が一定の乱数列を生成するクラス
+//idxT: 乱数の個数の型 randT: 乱数の型(整数型)
 #include <random>
 #include <vector>
 #include <cmath>
@@ -110,7 +111,7 @@ template <typename idxT, typename randT>
 class RandomIntegerSequenceWithConstantSum
 {
     //生成のやり直し回数および比例定数を指定して初期化
-    //指定しない場合、やり直し回数のデフォルトは10回、比例定数のデフォルトは10.0
+    //指定しない場合、やり直し回数のデフォルトは10回、比例定数のデフォルトは6.0
     explicit RandomIntegerSequenceWithConstantSum(void);
     explicit RandomIntegerSequenceWithConstantSum(idxT retry_max);
     explicit RandomIntegerSequenceWithConstantSum(double k);
